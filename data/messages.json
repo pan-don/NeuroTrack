@@ -1,0 +1,282 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "Dummy messaging data for NeuroTrack chat system",
+    "last_updated": "2025-12-15T00:00:00Z"
+  },
+  "participants": [
+    {
+      "id": "p1",
+      "type": "patient",
+      "name": "Alice Tan",
+      "role": "Post-Stroke Patient",
+      "avatar": "",
+      "lastMessage": "Thank you for the advice, Doctor!",
+      "lastMessageTime": "2025-12-15T09:45:00Z",
+      "unread": 2,
+      "online": true
+    },
+    {
+      "id": "p2",
+      "type": "patient",
+      "name": "Robert Chen",
+      "role": "Rehabilitation Patient",
+      "avatar": "",
+      "lastMessage": "When is my next session?",
+      "lastMessageTime": "2025-12-15T08:30:00Z",
+      "unread": 0,
+      "online": false
+    },
+    {
+      "id": "p3",
+      "type": "patient",
+      "name": "Maria Santos",
+      "role": "Physical Therapy Patient",
+      "avatar": "",
+      "lastMessage": "I completed today's exercises",
+      "lastMessageTime": "2025-12-14T18:20:00Z",
+      "unread": 1,
+      "online": true
+    },
+    {
+      "id": "p4",
+      "type": "patient",
+      "name": "John Williams",
+      "role": "Recovery Patient",
+      "avatar": "",
+      "lastMessage": "Feeling much better now",
+      "lastMessageTime": "2025-12-14T14:15:00Z",
+      "unread": 0,
+      "online": false
+    },
+    {
+      "id": "pt1",
+      "type": "physio",
+      "name": "Dr. Sarah Johnson",
+      "role": "Senior Physiotherapist",
+      "avatar": "",
+      "lastMessage": "Patient progress looking good",
+      "lastMessageTime": "2025-12-15T10:15:00Z",
+      "unread": 0,
+      "online": true
+    },
+    {
+      "id": "pt2",
+      "type": "physio",
+      "name": "Dr. Michael Lee",
+      "role": "Rehabilitation Specialist",
+      "avatar": "",
+      "lastMessage": "See you at the meeting",
+      "lastMessageTime": "2025-12-15T07:00:00Z",
+      "unread": 3,
+      "online": true
+    },
+    {
+      "id": "pt3",
+      "type": "physio",
+      "name": "Dr. Emily Davis",
+      "role": "Physical Therapist",
+      "avatar": "",
+      "lastMessage": "New treatment plan attached",
+      "lastMessageTime": "2025-12-14T16:45:00Z",
+      "unread": 0,
+      "online": false
+    }
+  ],
+  "messages": {
+    "p1": [
+      {
+        "id": "m1",
+        "from": "p1",
+        "to": "me",
+        "text": "Good morning, Doctor. I wanted to update you on my progress.",
+        "time": "2025-12-15T09:30:00Z",
+        "sent": true,
+        "read": true
+      },
+      {
+        "id": "m2",
+        "from": "me",
+        "to": "p1",
+        "text": "Good morning, Alice! I'm glad to hear from you. How are you feeling today?",
+        "time": "2025-12-15T09:32:00Z",
+        "sent": true,
+        "read": true
+      },
+      {
+        "id": "m3",
+        "from": "p1",
+        "to": "me",
+        "text": "I've been doing the exercises you recommended. My mobility has improved significantly!",
+        "time": "2025-12-15T09:35:00Z",
+        "sent": true,
+        "read": true
+      },
+      {
+        "id": "m4",
+        "from": "me",
+        "to": "p1",
+        "text": "That's excellent news! Keep up the good work. Make sure to rest between sessions.",
+        "time": "2025-12-15T09:40:00Z",
+        "sent": true,
+        "read": true
+      },
+      {
+        "id": "m5",
+        "from": "p1",
+        "to": "me",
+        "text": "Thank you for the advice, Doctor!",
+        "time": "2025-12-15T09:45:00Z",
+        "sent": true,
+        "read": false
+      }
+    ],
+    "p2": [
+      {
+        "id": "m6",
+        "from": "p2",
+        "to": "me",
+        "text": "Hi Doctor, I hope you're doing well.",
+        "time": "2025-12-15T08:20:00Z",
+        "sent": true,
+        "read": true
+      },
+      {
+        "id": "m7",
+        "from": "me",
+        "to": "p2",
+        "text": "Hello Robert! I'm doing well, thank you. How can I help you?",
+        "time": "2025-12-15T08:25:00Z",
+        "sent": true,
+        "read": true
+      },
+      {
+        "id": "m8",
+        "from": "p2",
+        "to": "me",
+        "text": "When is my next session?",
+        "time": "2025-12-15T08:30:00Z",
+        "sent": true,
+        "read": true
+      }
+    ],
+    "p3": [
+      {
+        "id": "m9",
+        "from": "p3",
+        "to": "me",
+        "text": "I completed today's exercises",
+        "time": "2025-12-14T18:20:00Z",
+        "sent": true,
+        "read": false
+      }
+    ],
+    "p4": [
+      {
+        "id": "m10",
+        "from": "p4",
+        "to": "me",
+        "text": "The new medication is working well.",
+        "time": "2025-12-14T14:10:00Z",
+        "sent": true,
+        "read": true
+      },
+      {
+        "id": "m11",
+        "from": "me",
+        "to": "p4",
+        "text": "That's great to hear! Continue with the prescribed dosage.",
+        "time": "2025-12-14T14:12:00Z",
+        "sent": true,
+        "read": true
+      },
+      {
+        "id": "m12",
+        "from": "p4",
+        "to": "me",
+        "text": "Feeling much better now",
+        "time": "2025-12-14T14:15:00Z",
+        "sent": true,
+        "read": true
+      }
+    ],
+    "pt1": [
+      {
+        "id": "m13",
+        "from": "pt1",
+        "to": "me",
+        "text": "Good morning! I reviewed the patient files you sent.",
+        "time": "2025-12-15T10:00:00Z",
+        "sent": true,
+        "read": true
+      },
+      {
+        "id": "m14",
+        "from": "me",
+        "to": "pt1",
+        "text": "Great! What are your thoughts on the treatment plans?",
+        "time": "2025-12-15T10:10:00Z",
+        "sent": true,
+        "read": true
+      },
+      {
+        "id": "m15",
+        "from": "pt1",
+        "to": "me",
+        "text": "Patient progress looking good",
+        "time": "2025-12-15T10:15:00Z",
+        "sent": true,
+        "read": true
+      }
+    ],
+    "pt2": [
+      {
+        "id": "m16",
+        "from": "pt2",
+        "to": "me",
+        "text": "Don't forget about the team meeting at 2 PM today.",
+        "time": "2025-12-15T06:50:00Z",
+        "sent": true,
+        "read": false
+      },
+      {
+        "id": "m17",
+        "from": "me",
+        "to": "pt2",
+        "text": "Thanks for the reminder! I'll be there.",
+        "time": "2025-12-15T06:55:00Z",
+        "sent": true,
+        "read": true
+      },
+      {
+        "id": "m18",
+        "from": "pt2",
+        "to": "me",
+        "text": "See you at the meeting",
+        "time": "2025-12-15T07:00:00Z",
+        "sent": true,
+        "read": false
+      }
+    ],
+    "pt3": [
+      {
+        "id": "m19",
+        "from": "pt3",
+        "to": "me",
+        "text": "I've prepared a new treatment plan for Mrs. Santos.",
+        "time": "2025-12-14T16:40:00Z",
+        "sent": true,
+        "read": true
+      },
+      {
+        "id": "m20",
+        "from": "pt3",
+        "to": "me",
+        "text": "New treatment plan attached",
+        "time": "2025-12-14T16:45:00Z",
+        "sent": true,
+        "read": true
+      }
+    ]
+  }
+}

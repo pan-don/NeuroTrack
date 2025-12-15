@@ -24,7 +24,7 @@
                 <a href="#" class="header-nav__link" onclick="showSection('dashboard'); return false;">Dashboard</a>
                 <a href="#" class="header-nav__link" onclick="showSection('schedule'); return false;">Schedule</a>
                 <a href="#" class="header-nav__link" onclick="showSection('profile'); return false;">Profile</a>
-                <a href="#" class="header-nav__link">Message</a>
+                <a href="#" class="header-nav__link" onclick="showSection('messages'); return false;">Messages</a>
             </nav>
 
             <!-- Actions -->
@@ -223,6 +223,132 @@
             <div id="dashboardSection" class="content-section">
                 <h1>Doctor Dashboard</h1>
                 <p>Manage your patients and track rehabilitation progress.</p>
+            </div>
+            
+            <!-- Messages Section -->
+            <div id="messagesSection" class="content-section" style="display: none;">
+                <div class="messages-page">
+                    <h1 class="messages-page__title">Messages</h1>
+                    
+                    <div class="messages-layout">
+                        <!-- Left Panel: Chatbox (66.66%) -->
+                        <div class="chat-panel" id="chatPanel">
+                            <!-- Chat Header -->
+                            <div class="chat-header" id="chatHeader">
+                                <div class="chat-header__placeholder">
+                                    <svg width="48" height="48" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <p>Select a conversation to start messaging</p>
+                                </div>
+                                <div class="chat-header__active" style="display: none;">
+                                    <div class="chat-header__user">
+                                        <div class="chat-avatar" id="chatAvatar">
+                                            <span id="chatAvatarInitial">A</span>
+                                        </div>
+                                        <div class="chat-header__info">
+                                            <div class="chat-header__name" id="chatName">Alice Tan</div>
+                                            <div class="chat-header__status" id="chatStatus">Online</div>
+                                        </div>
+                                    </div>
+                                    <div class="chat-header__actions">
+                                        <button class="chat-action-btn" title="Video Call" aria-label="Start video call">
+                                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="chat-action-btn" title="Voice Call" aria-label="Start voice call">
+                                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="chat-action-btn" title="More Options" aria-label="More options">
+                                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Messages Area -->
+                            <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-atomic="false">
+                                <!-- Messages will be inserted here -->
+                            </div>
+                            
+                            <!-- Typing Indicator -->
+                            <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                                <div class="typing-indicator__content">
+                                    <div class="typing-dot"></div>
+                                    <div class="typing-dot"></div>
+                                    <div class="typing-dot"></div>
+                                </div>
+                                <span class="typing-indicator__text">typing...</span>
+                            </div>
+                            
+                            <!-- Message Composer -->
+                            <div class="chat-composer" id="chatComposer">
+                                <button class="composer-btn" title="Attach File" aria-label="Attach file">
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd"/>
+                                    </svg>
+                                </button>
+                                <button class="composer-btn" title="Emoji" aria-label="Insert emoji">
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535a1 1 0 10-1.415-1.414 3 3 0 01-4.242 0 1 1 0 00-1.415 1.414 5 5 0 007.072 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                </button>
+                                <textarea 
+                                    class="composer-input" 
+                                    id="messageInput" 
+                                    placeholder="Type a message..." 
+                                    rows="1"
+                                    aria-label="Message input"
+                                ></textarea>
+                                <button class="composer-send" id="sendButton" aria-label="Send message">
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Panel: Participants List (33.33%) -->
+                        <div class="participants-panel" id="participantsPanel">
+                            <!-- Search Box -->
+                            <div class="participants-search">
+                                <svg class="search-icon" width="18" height="18" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+                                </svg>
+                                <input 
+                                    type="text" 
+                                    class="search-input" 
+                                    id="participantSearch" 
+                                    placeholder="Search conversations..."
+                                    aria-label="Search conversations"
+                                />
+                            </div>
+                            
+                            <!-- Filter Tabs -->
+                            <div class="participants-filter">
+                                <button class="filter-tab active" data-filter="all" onclick="filterParticipants('all')">
+                                    All
+                                </button>
+                                <button class="filter-tab" data-filter="patient" onclick="filterParticipants('patient')">
+                                    Patients
+                                </button>
+                                <button class="filter-tab" data-filter="physio" onclick="filterParticipants('physio')">
+                                    Physiotherapists
+                                </button>
+                            </div>
+                            
+                            <!-- Participants List -->
+                            <div class="participants-list" id="participantsList" role="list">
+                                <!-- Participants will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <!-- User Profile Section -->
@@ -554,6 +680,9 @@
             document.getElementById('dashboardSection').style.display = 'none';
             document.getElementById('scheduleSection').style.display = 'none';
             document.getElementById('profileSection').style.display = 'none';
+            if (document.getElementById('messagesSection')) {
+                document.getElementById('messagesSection').style.display = 'none';
+            }
             
             // Show the selected section
             if (section === 'dashboard') {
@@ -563,13 +692,21 @@
             } else if (section === 'profile') {
                 document.getElementById('profileSection').style.display = 'block';
                 loadProfilePage();
+            } else if (section === 'messages') {
+                document.getElementById('messagesSection').style.display = 'block';
+                if (!window.chatInitialized) {
+                    initializeChat();
+                    window.chatInitialized = true;
+                }
             }
             
             // Update active nav link
             document.querySelectorAll('.header-nav__link').forEach(link => {
                 link.classList.remove('active');
             });
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
             
             activeSection = section;
             
@@ -1011,6 +1148,295 @@
                 closeProfileModal();
             }
         });
+
+        // ==================== CHAT SYSTEM ====================
+        let chatData = null;
+        let activeChat = null;
+        let currentFilter = 'all';
+
+        async function initializeChat() {
+            try {
+                // Load chat data from JSON file
+                const response = await fetch('../data/messages.json');
+                chatData = await response.json();
+                
+                // Render participants list
+                renderParticipants();
+                
+                // Setup search functionality
+                setupSearch();
+                
+                // Setup message composer
+                setupComposer();
+                
+                console.log('Chat initialized successfully');
+            } catch (error) {
+                console.error('Failed to initialize chat:', error);
+            }
+        }
+
+        function renderParticipants(filterType = 'all') {
+            if (!chatData || !chatData.participants) return;
+            
+            const participantsList = document.getElementById('participantsList');
+            let participants = chatData.participants;
+            
+            // Apply filter
+            if (filterType === 'patient') {
+                participants = participants.filter(p => p.type === 'patient');
+            } else if (filterType === 'physio') {
+                participants = participants.filter(p => p.type === 'physio');
+            }
+            
+            // Sort by last message time (most recent first)
+            participants.sort((a, b) => new Date(b.lastMessageTime) - new Date(a.lastMessageTime));
+            
+            participantsList.innerHTML = participants.map(participant => `
+                <div class="participant-item ${activeChat === participant.id ? 'active' : ''}" 
+                     data-id="${participant.id}" 
+                     onclick="selectParticipant('${participant.id}')"
+                     role="listitem">
+                    <div class="participant-avatar">
+                        <span class="avatar-initial">${participant.name.charAt(0)}</span>
+                        ${participant.online ? '<span class="online-dot"></span>' : ''}
+                    </div>
+                    <div class="participant-info">
+                        <div class="participant-header">
+                            <div class="participant-name">${participant.name}</div>
+                            <div class="participant-time">${formatMessageTime(participant.lastMessageTime)}</div>
+                        </div>
+                        <div class="participant-preview">
+                            <span class="preview-text">${participant.lastMessage}</span>
+                            ${participant.unread > 0 ? `<span class="unread-badge">${participant.unread}</span>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function selectParticipant(participantId) {
+            activeChat = participantId;
+            
+            // Find participant data
+            const participant = chatData.participants.find(p => p.id === participantId);
+            if (!participant) return;
+            
+            // Clear unread count
+            participant.unread = 0;
+            
+            // Update UI to show active chat
+            document.querySelectorAll('.participant-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelector(`.participant-item[data-id="${participantId}"]`)?.classList.add('active');
+            
+            // Show chat header
+            document.querySelector('.chat-header__placeholder').style.display = 'none';
+            document.querySelector('.chat-header__active').style.display = 'flex';
+            
+            // Update chat header
+            document.getElementById('chatName').textContent = participant.name;
+            document.getElementById('chatStatus').textContent = participant.online ? 'Online' : 'Offline';
+            document.getElementById('chatAvatarInitial').textContent = participant.name.charAt(0);
+            
+            // Load and display messages
+            loadMessages(participantId);
+            
+            // Re-render participants to update unread badge
+            renderParticipants(currentFilter);
+        }
+
+        function loadMessages(participantId) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messages = chatData.messages[participantId] || [];
+            
+            if (messages.length === 0) {
+                messagesContainer.innerHTML = '<div class="no-messages">No messages yet</div>';
+                return;
+            }
+            
+            messagesContainer.innerHTML = messages.map((message, index) => {
+                const isMe = message.from === 'me';
+                const showDate = index === 0 || !isSameDay(message.time, messages[index - 1].time);
+                
+                return `
+                    ${showDate ? `<div class="message-date">${formatDate(message.time)}</div>` : ''}
+                    <div class="message ${isMe ? 'message--sent' : 'message--received'}">
+                        <div class="message-bubble">
+                            <div class="message-text">${message.text}</div>
+                            <div class="message-meta">
+                                <span class="message-time">${formatTime(message.time)}</span>
+                                ${isMe ? `
+                                    <span class="message-status">
+                                        ${message.read ? 
+                                            '<svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20" style="margin-left: -8px;"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>' 
+                                            : '<svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>'}
+                                    </span>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Scroll to bottom
+            setTimeout(() => {
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 100);
+        }
+
+        function sendMessage() {
+            if (!activeChat) return;
+            
+            const input = document.getElementById('messageInput');
+            const messageText = input.value.trim();
+            
+            if (!messageText) return;
+            
+            // Create new message object
+            const newMessage = {
+                id: `m${Date.now()}`,
+                from: 'me',
+                to: activeChat,
+                text: messageText,
+                time: new Date().toISOString(),
+                sent: true,
+                read: false
+            };
+            
+            // Add to messages array
+            if (!chatData.messages[activeChat]) {
+                chatData.messages[activeChat] = [];
+            }
+            chatData.messages[activeChat].push(newMessage);
+            
+            // Update participant's last message
+            const participant = chatData.participants.find(p => p.id === activeChat);
+            if (participant) {
+                participant.lastMessage = messageText;
+                participant.lastMessageTime = newMessage.time;
+            }
+            
+            // Clear input
+            input.value = '';
+            input.style.height = 'auto';
+            
+            // Reload messages
+            loadMessages(activeChat);
+            
+            // Re-render participants
+            renderParticipants(currentFilter);
+        }
+
+        function setupComposer() {
+            const input = document.getElementById('messageInput');
+            const sendButton = document.getElementById('sendButton');
+            
+            // Auto-resize textarea
+            input.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+            });
+            
+            // Send on Enter (Shift+Enter for new line)
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+            
+            // Send button click
+            sendButton.addEventListener('click', sendMessage);
+        }
+
+        function setupSearch() {
+            const searchInput = document.getElementById('participantSearch');
+            
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase();
+                const participants = document.querySelectorAll('.participant-item');
+                
+                participants.forEach(item => {
+                    const name = item.querySelector('.participant-name').textContent.toLowerCase();
+                    const preview = item.querySelector('.preview-text').textContent.toLowerCase();
+                    
+                    if (name.includes(query) || preview.includes(query)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Keyboard shortcut: / to focus search
+            document.addEventListener('keydown', function(e) {
+                if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+                    e.preventDefault();
+                    searchInput.focus();
+                }
+            });
+        }
+
+        function filterParticipants(type) {
+            currentFilter = type;
+            
+            // Update filter tabs
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`.filter-tab[data-filter="${type}"]`).classList.add('active');
+            
+            // Re-render participants
+            renderParticipants(type);
+        }
+
+        // Utility functions
+        function formatMessageTime(timestamp) {
+            const date = new Date(timestamp);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMins = Math.floor(diffMs / 60000);
+            
+            if (diffMins < 1) return 'Just now';
+            if (diffMins < 60) return `${diffMins}m`;
+            if (diffMins < 1440) return `${Math.floor(diffMins / 60)}h`;
+            if (diffMins < 10080) return `${Math.floor(diffMins / 1440)}d`;
+            
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        }
+
+        function formatTime(timestamp) {
+            return new Date(timestamp).toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: true 
+            });
+        }
+
+        function formatDate(timestamp) {
+            const date = new Date(timestamp);
+            const today = new Date();
+            const yesterday = new Date(today);
+            yesterday.setDate(yesterday.getDate() - 1);
+            
+            if (isSameDay(date, today)) return 'Today';
+            if (isSameDay(date, yesterday)) return 'Yesterday';
+            
+            return date.toLocaleDateString('en-US', { 
+                month: 'long', 
+                day: 'numeric',
+                year: date.getFullYear() !== today.getFullYear() ? 'numeric' : undefined
+            });
+        }
+
+        function isSameDay(date1, date2) {
+            const d1 = new Date(date1);
+            const d2 = new Date(date2);
+            return d1.getFullYear() === d2.getFullYear() &&
+                   d1.getMonth() === d2.getMonth() &&
+                   d1.getDate() === d2.getDate();
+        }
     </script>
 </body>
 </html>

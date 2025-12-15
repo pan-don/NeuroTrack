@@ -13,7 +13,7 @@
         "hospitalAffiliation": "General Hospital"
       },
       "created_at": "2025-12-13T00:00:00Z",
-      "last_login": "2025-12-14T04:36:31.511705Z"
+      "last_login": "2025-12-15T06:34:33.944099Z"
     },
     {
       "id": "user_002",
@@ -46,7 +46,7 @@
   ],
   "_meta": {
     "version": "1.0",
-    "last_updated": "2025-12-14T04:36:31.512711Z",
+    "last_updated": "2025-12-15T06:34:33.967977Z",
     "total_users": 3
   }
 }
